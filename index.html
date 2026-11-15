@@ -813,7 +813,7 @@ details.more[open] summary::after{transform:rotate(45deg)}
   BASE.ny = [...document.querySelectorAll('.nyc')].map(b => ({img: G.ny[+b.dataset.i], h: b.querySelector('h3').textContent, p: b.querySelector('p').textContent, b: b.querySelector('b').textContent}));
   let D = window.SITE_DATA || null;
   // MASTER_URL: веб-приложение Apps Script (вход по паролю, сохранение в GitHub). Пусто = демо, правки только в этом браузере.
-  const MASTER_URL = '';
+  const MASTER_URL = 'https://script.google.com/macros/s/AKfycbzJhz0KUtcXrVpHt3EfkqE_bs0GWBkx_AGoSea3M-K__ZWtgxOm8NY9BWoWiL6renhfZA/exec';
   const DEMO_KEY = 'vb-demo-v1';
   try { const x = JSON.parse(sessionStorage.getItem('vb-pub') || 'null'); if (x && (x.rev || 0) > ((D && D.rev) || 0)) D = x; } catch (e) {}
   if (!MASTER_URL) try { const x = JSON.parse(localStorage.getItem(DEMO_KEY) || 'null'); if (x && (!D || (x.rev || 0) >= (D.rev || 0))) D = x; } catch (e) {}
