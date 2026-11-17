@@ -373,6 +373,25 @@ details.more[open] summary::after{transform:rotate(45deg)}
 .anim .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
 .anim .rv.in{opacity:1;transform:none}
 </style>
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114310067', 'ym');
+
+    ym(114310067, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    // Goals: lead = form sent, contact = phone, VK or MAX click
+    window.goal = function(n, p){ try { ym(114310067, 'reachGoal', n, p); } catch (e) {} };
+    document.addEventListener("click", function(e){
+      var a = e.target.closest && e.target.closest("a[href]"); if (!a) return;
+      var h = a.getAttribute("href");
+      if (/^tel:/.test(h)) goal("contact", {via: "phone"});
+      else if (/^(vk\.me|vk\.ru|vk\.com|max\.ru|web\.max\.ru|wa\.me)$/.test(a.hostname)) goal("contact", {via: a.hostname});
+    }, true);
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114310067" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
 
@@ -951,7 +970,7 @@ details.more[open] summary::after{transform:rotate(45deg)}
     if (d.length > 9) s += '-' + d.slice(9, 11);
     phone.value = s;
   });
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbz6Vgma09-btnfG5PMyUUyyipUpdoUT1mGWM3Q6vfNssByV7OTSavrSE_yl9j7e_oqY4g/exec";
   const checked = n => [...form.querySelectorAll(`[name=${n}]:checked`)].map(i => i.value);
   function details() {
     const o = [];
@@ -981,7 +1000,7 @@ details.more[open] summary::after{transform:rotate(45deg)}
       ok = (await res.json()).ok === true;
     } catch (x) {}
     btn.disabled = false; btn.textContent = 'Отправить заявку';
-    if (ok) { $('f-body').hidden = true; $('sent').hidden = false; $('sent').focus({preventScroll: true}); $('sent').scrollIntoView({block: 'center'}); }
+    if (ok) { window.goal && goal('lead'); $('f-body').hidden = true; $('sent').hidden = false; $('sent').focus({preventScroll: true}); $('sent').scrollIntoView({block: 'center'}); }
     else { $('fallback').hidden = false; $('fallback').scrollIntoView({block: 'center'}); }
   });
   $('copy').onclick = async () => {
