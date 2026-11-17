@@ -4,12 +4,14 @@
 <meta charset="utf-8">
 <script>document.write('<script src="data.js?t=' + Math.floor(Date.now() / 6e4) + '"><\/script>')</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex">
+<link rel="canonical" href="https://vkusbuket-koltushi.ru/">
+<meta property="og:url" content="https://vkusbuket-koltushi.ru/">
+<meta property="og:type" content="website">
 <title>ВкусБукет_Колтуши: съедобные букеты и подарки в Колтушах</title>
 <meta name="description" content="Букеты из орехов и сухофруктов, клубника в бельгийском шоколаде, сладкие, фруктовые и мужские букеты, корзины и новогодние подарки. Колтуши, без предоплаты.">
 <meta property="og:title" content="ВкусБукет_Колтуши: вкусные букеты, красиво и со смыслом">
 <meta property="og:description" content="Съедобные букеты и подарки в Колтушах: орехи и сухофрукты, клубника в шоколаде, сладкие и фруктовые букеты, корзины.">
-<meta property="og:image" content="img/hero.jpg">
+<meta property="og:image" content="https://vkusbuket-koltushi.ru/img/hero.jpg">
 <meta name="theme-color" content="#FBF6F2">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/gl-300-600-n-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
@@ -373,7 +375,6 @@ details.more[open] summary::after{transform:rotate(45deg)}
 </style>
 </head>
 <body>
-<div class="mock">Макет сайта для группы «ВкусБукет_Колтуши». После согласования подключим своё имя сайта, а заявки будут приходить вам в сообщения</div>
 
 <header class="top" id="top">
  <div class="wrap top-in">
@@ -976,7 +977,7 @@ details.more[open] summary::after{transform:rotate(45deg)}
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: 'POST', headers: {'Content-Type': 'text/plain;charset=utf-8'}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ['Макет vkusbuket-koltushi (ВкусБукет_Колтуши, Колтуши)', ...details()].join('; '), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ['Сайт vkusbuket-koltushi.ru', ...details()].join('; '), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (x) {}
     btn.disabled = false; btn.textContent = 'Отправить заявку';
